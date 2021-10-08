@@ -17,7 +17,7 @@ const qrCode = new QRCodeStyling({
     width: 300,
     height: 300,
     margin: 0,
-    // image:"https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+    image:"https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
     dotsOptions: {
         color: "red",
         type: "rounded",
@@ -49,7 +49,7 @@ const qrCode = new QRCodeStyling({
 
 const Qrcode = () => {
 
-    const [url, setUrl] = useState("http://www.peprosys.com");
+    const [url, setUrl] = useState("https://krishnadeveloper.github.io/react-qr-code-style/index.html");
     const [height, setHeight] = useState(300)
     const [width, setWidth] = useState(300)
     const [logo, setLogo] = useState("https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg")
