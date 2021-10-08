@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Demo 
+Demo Available here : [https://krishnadeveloper.github.io/react-qr-code-style/index.html](https://krishnadeveloper.github.io/react-qr-code-style/index.html)
+
 ## Available Options
 
 This is sample of QR design with available options
