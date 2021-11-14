@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import QRCodeStyling from 'qr-code-styling';
-import { Accordion, ButtonGroup, Card, Col, Container, Form, InputGroup, ListGroup, Row, Tab, Button } from 'react-bootstrap';
+import { Accordion, ButtonGroup, Card, Col, Container, Form, InputGroup, ListGroup, Row, Tab, Button, Nav, NavItem, Navbar, NavbarBrand } from 'react-bootstrap';
 
 let qrCode = new QRCodeStyling({
     width: 300,
@@ -41,7 +41,7 @@ const Qrcode = () => {
     const [url, setUrl] = useState("https://krishnadeveloper.github.io/react-qr-code-style/index.html");
     const [height, setHeight] = useState(300)
     const [width, setWidth] = useState(300)
-    const [logo, setLogo] = useState(""); //https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg
+    const [logo, setLogo] = useState("https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"); //https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg
     const [mainMargin, setMainMargin] = useState(0);
 
     // Dot Options
@@ -290,8 +290,11 @@ const Qrcode = () => {
     return (
 
         <Container fluid={true}>
+            <Navbar>
+                <NavbarBrand>QR Code Designer</NavbarBrand>
+            </Navbar>
             <Row>
-                <Col sm={12} md={6} lg={4} >
+                <Col sm={12} md={6} lg={3} className="p-0">
                     <Card>
                         <Card.Body>
                             <div ref={ref} style={{ border: "2px dotted red" }} />
@@ -312,7 +315,7 @@ const Qrcode = () => {
                         </Card.Footer>
                     </Card>
                 </Col>
-                <Col sm={12} md={6} lg={8}>
+                <Col sm={12} md={6} lg={9}>
                     <Row>
                         <Col sm={12} md={6}>
                             <Accordion>
