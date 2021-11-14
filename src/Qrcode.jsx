@@ -13,7 +13,7 @@ const styles = {
     }
 };
 
-const qrCode = new QRCodeStyling({
+let qrCode = new QRCodeStyling({
     width: 300,
     height: 300,
     margin: 0,
@@ -183,44 +183,49 @@ const Qrcode = () => {
             
         }
 
+        updateOnColorChange(finalUpdate);
         qrCode.update(finalUpdate)
 
 
     }, [
-        height, 
-        width, 
-        logo, 
-        mainMargin, 
-        dotStyle, 
-        dotColor,
-        url,
-        cornerSQRStyle,
-        cornerSQRColor,
-        cornerSQRColorType,
-        cornerSQRGradientType,
-        cornerSQRGradientOne,
-        cornerSQRGradientTwo,
-        cornerSQRRotation,
-        cornerDotStyle,
-        cornerDotColor,
-        cornerDotColorType,
-        cornerDotGradientType,
-        cornerDotGradientOne,
-        cornerDotGradientTwo,
-        cornerDotRotation,
-        BackgroundColor,
-        BackgroundColorType,
-        BackgroundGradientType,
-        BackgroundGradientOne,
-        BackgroundGradientTwo,
-        BackgroundRotation,
-        hideImageDots,
-        imageSize,
-        imageMargin,
-        qrTypeNumber,
-        qrMode,
-        qrErrorCorrectionLevel,
-
+        height,
+    width,
+    logo,
+    mainMargin,
+    dotStyle,
+    dotColor,
+    dotColorType,
+    url,
+    cornerSQRStyle,
+    cornerSQRColor,
+    cornerSQRColorType,
+    cornerSQRGradientType,
+    cornerSQRGradientOne,
+    cornerSQRGradientTwo,
+    cornerSQRRotation,
+    cornerDotStyle,
+    cornerDotColor,
+    cornerDotColorType,
+    cornerDotGradientType,
+    cornerDotGradientOne,
+    cornerDotGradientTwo,
+    cornerDotRotation,
+    BackgroundColor,
+    BackgroundColorType,
+    BackgroundGradientType,
+    BackgroundGradientOne,
+    BackgroundGradientTwo,
+    BackgroundRotation,
+    hideImageDots,
+    imageSize,
+    imageMargin,
+    qrTypeNumber,
+    qrMode,
+    qrErrorCorrectionLevel,
+    dotGradientType,
+    dotGradientOne,
+    dotGradientTwo,
+    dotRotation
     ])
 
     useEffect(()=>{
@@ -246,10 +251,10 @@ const Qrcode = () => {
     };
 
     const onDownloadClick = () => {
-        qrCode.getRawData("png").then(row => console.log(row))
-        // qrCode.download({
-        //     extension: fileExt
-        // });
+        // qrCode.getRawData("png").then(row => console.log(row))
+        qrCode.download({
+            extension: fileExt
+        });
     };
 
     function handleImageChange(evt) {
@@ -263,6 +268,14 @@ const Qrcode = () => {
             setLogo(reader.result)
         }
         reader.readAsDataURL(rawFile);
+    }
+
+    function updateOnColorChange(updatedProperties){
+        if(ref.current.children[0]){
+            qrCode = new QRCodeStyling(updatedProperties);
+            ref.current.removeChild(ref.current.children[0]);
+            qrCode.append(ref.current)
+        }
     }
     return (
         <div>
